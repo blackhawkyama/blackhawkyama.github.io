@@ -1,0 +1,41 @@
+# --- Site settings ---------------------------------------------------------
+# The repo MUST be named  blackhawkyama.github.io  for Pages to serve it.
+
+title: BlackhawkYama
+tagline: Security write-ups, notes, and projects
+description: >-
+  Personal site and technical blog of BlackhawkYama.
+url: "https://blackhawkyama.github.io"
+baseurl: ""
+
+author:
+  name: BlackhawkYama
+  # email: you@example.com
+
+# --- Theme -----------------------------------------------------------------
+# minima is built into GitHub Pages and works with zero extra setup.
+# To upgrade to a sharper technical-blog theme later, see README.md.
+theme: minima
+minima:
+  skin: dark
+  social_links:
+    github: blackhawkyama
+
+# --- Build -----------------------------------------------------------------
+markdown: kramdown
+permalink: /posts/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Show these pages in the top nav
+header_pages:
+  - about.md
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
