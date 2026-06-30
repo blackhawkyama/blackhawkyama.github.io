@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HTB Starting Point — Meow: Telnet & Missing Authentication"
-date: 2026-06-30 18:00:00 -0700
+date: 2026-06-30 12:00:00 -0700
 categories: [htb, starting-point]
 tags: [telnet, enumeration, misconfiguration, linux]
 ---
