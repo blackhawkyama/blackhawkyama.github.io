@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 452" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="452" rx="14" fill="url(#cbg)"/>
+  <rect x="0" y="0" width="820" height="52" rx="14" fill="#bf3989"/>
+  <rect x="0" y="38" width="820" height="14" fill="#bf3989"/>
+  <circle cx="26" cy="26" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="26" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="26" r="6" fill="#27c93f"/>
+  <text x="410" y="31" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">CSRF · cross-site request forgery</text>
+
+  <text x="34" y="90" fill="#8b949e" font-size="13">1 · Attacker hosts a page that auto-submits a hidden form:</text>
+  <rect x="30" y="102" width="760" height="58" rx="8" fill="#010409" stroke="#f778ba"/>
+  <text x="46" y="124" font-size="13"><tspan fill="#6e7681">&lt;form action=</tspan><tspan fill="#f778ba">"https://bank/my-account/change-email"</tspan><tspan fill="#6e7681"> method=POST&gt;</tspan></text>
+  <text x="46" y="142" font-size="13"><tspan fill="#6e7681">&#160;&#160;&lt;input name=email value=</tspan><tspan fill="#f778ba">pwned@evil</tspan><tspan fill="#6e7681">&gt;&lt;/form&gt;&#160;&#160;&lt;script&gt;form.submit()&lt;/script&gt;</tspan></text>
+
+  <!-- flow -->
+  <g font-size="12">
+    <rect x="40" y="182" width="150" height="52" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="115" y="205" fill="#c9d1d9" text-anchor="middle" font-weight="700">Victim</text>
+    <text x="115" y="222" fill="#6e7681" text-anchor="middle">logged in, just views</text>
+
+    <rect x="335" y="182" width="150" height="52" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="410" y="205" fill="#c9d1d9" text-anchor="middle" font-weight="700">Their browser</text>
+    <text x="410" y="222" fill="#6e7681" text-anchor="middle">auto-sends cookie</text>
+
+    <rect x="630" y="182" width="150" height="52" rx="8" fill="#2a1721" stroke="#f85149"/>
+    <text x="705" y="205" fill="#ff7b72" text-anchor="middle" font-weight="700">Bank server</text>
+    <text x="705" y="222" fill="#6e7681" text-anchor="middle">accepts it</text>
+
+    <line x1="190" y1="208" x2="333" y2="208" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="262" y="201" fill="#58a6ff" text-anchor="middle">form fires</text>
+    <line x1="485" y1="208" x2="628" y2="208" stroke="#f85149" stroke-width="1.5"/>
+    <text x="556" y="201" fill="#f85149" text-anchor="middle">POST + cookie</text>
+  </g>
+
+  <text x="34" y="274" fill="#8b949e" font-size="13">2 · Server can't tell forged from real — there's no CSRF token:</text>
+  <rect x="30" y="286" width="760" height="40" rx="8" fill="#010409" stroke="#30363d"/>
+  <text x="46" y="312" font-size="14"><tspan fill="#3fb950">valid session cookie</tspan><tspan fill="#c9d1d9"> + </tspan><tspan fill="#f85149">no unpredictable token</tspan><tspan fill="#c9d1d9"> = request trusted</tspan></text>
+
+  <rect x="30" y="344" width="760" height="80" rx="10" fill="#2a1721" stroke="#f85149"/>
+  <text x="52" y="370" font-size="15" fill="#ff7b72" font-weight="700">Impact</text>
+  <text x="52" y="390" font-size="12.5" fill="#c9d1d9">The victim never clicked anything. Change their email &#8594; trigger a password</text>
+  <text x="52" y="407" font-size="12.5" fill="#c9d1d9">reset &#8594; silent account takeover. Defenses: CSRF tokens + SameSite cookies.</text>
+  <text x="705" y="392" font-size="13" fill="#3fb950" font-weight="700" text-anchor="middle">SOLVED &#10003;</text>
+</svg>
