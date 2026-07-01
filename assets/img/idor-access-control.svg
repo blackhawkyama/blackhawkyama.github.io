@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 452" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <linearGradient id="ibg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="452" rx="14" fill="url(#ibg)"/>
+  <rect x="0" y="0" width="820" height="52" rx="14" fill="#1f8a70"/>
+  <rect x="0" y="38" width="820" height="14" fill="#1f8a70"/>
+  <circle cx="26" cy="26" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="26" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="26" r="6" fill="#27c93f"/>
+  <text x="410" y="31" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">IDOR · broken access control</text>
+
+  <text x="34" y="92" fill="#8b949e" font-size="13">1 · Your own chat transcript downloads from:</text>
+  <rect x="30" y="104" width="760" height="40" rx="8" fill="#010409" stroke="#30363d"/>
+  <text x="46" y="130" font-size="15"><tspan fill="#6e7681">GET /download-transcript/</tspan><tspan fill="#79c0ff" font-weight="700">2</tspan><tspan fill="#6e7681">.txt</tspan></text>
+
+  <text x="34" y="182" fill="#8b949e" font-size="13">2 · Change the ID — the app never checks who owns it:</text>
+  <rect x="30" y="194" width="760" height="40" rx="8" fill="#010409" stroke="#f0883e"/>
+  <text x="46" y="220" font-size="15"><tspan fill="#6e7681">GET /download-transcript/</tspan><tspan fill="#ffa657" font-weight="700">1</tspan><tspan fill="#6e7681">.txt</tspan><tspan fill="#f85149">   &#8592; not yours, served anyway</tspan></text>
+
+  <text x="34" y="272" fill="#8b949e" font-size="13">3 · Another user's private transcript leaks their password:</text>
+  <rect x="30" y="284" width="760" height="40" rx="8" fill="#010409" stroke="#30363d"/>
+  <text x="46" y="310" font-size="13.5"><tspan fill="#c9d1d9">You: my password is </tspan><tspan fill="#3fb950" font-weight="700">[redacted]</tspan><tspan fill="#c9d1d9">   Hal: Yes it is!</tspan></text>
+
+  <rect x="30" y="352" width="760" height="72" rx="10" fill="#0f2417" stroke="#238636"/>
+  <text x="52" y="380" font-size="15" fill="#3fb950" font-weight="700">4 · Log in as that user → account takeover</text>
+  <text x="52" y="401" font-size="12.5" fill="#c9d1d9">No injection, no payload — just an object reference the app forgot to authorize.</text>
+  <text x="52" y="418" font-size="12.5" fill="#8b949e">OWASP #1: Broken Access Control.</text>
+  <text x="704" y="392" font-size="13" fill="#3fb950" font-weight="700" text-anchor="middle">SOLVED &#10003;</text>
+</svg>
