@@ -7,9 +7,9 @@ tags: [redis, database, unauthenticated, enumeration, misconfiguration]
 ---
 
 First box of **Tier 1** — and a step up from the Tier 0 file services
-([Meow]({% post_url 2026-06-30-htb-starting-point-meow %}),
-[Fawn]({% post_url 2026-06-30-htb-starting-point-fawn %}),
-[Dancing]({% post_url 2026-06-30-htb-starting-point-dancing %})). Redeemer swaps the
+([Meow]({% post_url 2026-06-09-htb-starting-point-meow %}),
+[Fawn]({% post_url 2026-06-16-htb-starting-point-fawn %}),
+[Dancing]({% post_url 2026-06-23-htb-starting-point-dancing %})). Redeemer swaps the
 service for a **database**, but the lesson rhymes: an unauthenticated data store on the
 network gives up its contents to anyone who connects.
 

@@ -7,7 +7,7 @@ tags: [ftp, anonymous-login, enumeration, misconfiguration]
 ---
 
 Second box of the Hack The Box **Starting Point** track. Fawn is the FTP counterpart to
-[Meow]({% post_url 2026-06-30-htb-starting-point-meow %}) — a different legacy service,
+[Meow]({% post_url 2026-06-09-htb-starting-point-meow %}) — a different legacy service,
 but the same lesson: a network service exposed **without authentication** hands over data
 to anyone who asks.
 

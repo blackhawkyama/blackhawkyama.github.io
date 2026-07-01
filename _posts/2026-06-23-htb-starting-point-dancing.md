@@ -8,8 +8,8 @@ tags: [smb, null-session, enumeration, windows, misconfiguration]
 
 Third and final Tier 0 box of the Hack The Box **Starting Point** track — and the one
 that completes a clear trilogy with
-[Meow]({% post_url 2026-06-30-htb-starting-point-meow %}) (Telnet) and
-[Fawn]({% post_url 2026-06-30-htb-starting-point-fawn %}) (FTP). Dancing is a **Windows**
+[Meow]({% post_url 2026-06-09-htb-starting-point-meow %}) (Telnet) and
+[Fawn]({% post_url 2026-06-16-htb-starting-point-fawn %}) (FTP). Dancing is a **Windows**
 box, but the takeaway is identical: a service exposed **without proper authentication**
 hands over its data.
 
