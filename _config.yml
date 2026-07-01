@@ -33,6 +33,7 @@ plugins:
 # Show these pages in the top nav
 header_pages:
   - about.md
+  - topics.md
 
 exclude:
   - README.md
