@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HTB Starting Point — Fawn: Anonymous FTP"
-date: 2026-06-30 13:00:00 -0700
+date: 2026-06-16 13:00:00 -0700
 categories: [htb, starting-point]
 tags: [ftp, anonymous-login, enumeration, misconfiguration]
 ---

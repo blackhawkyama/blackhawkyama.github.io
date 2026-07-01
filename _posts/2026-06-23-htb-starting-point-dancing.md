@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HTB Starting Point — Dancing: SMB Null Session"
-date: 2026-06-30 14:00:00 -0700
+date: 2026-06-23 14:00:00 -0700
 categories: [htb, starting-point]
 tags: [smb, null-session, enumeration, windows, misconfiguration]
 ---
