@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <linearGradient id="gbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="470" rx="14" fill="url(#gbg)"/>
+  <rect x="0" y="0" width="820" height="52" rx="14" fill="#1f8f6f"/>
+  <rect x="0" y="38" width="820" height="14" fill="#1f8f6f"/>
+  <circle cx="26" cy="26" r="6" fill="#ff5f56"/>
+  <circle cx="46" cy="26" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="26" r="6" fill="#27c93f"/>
+  <text x="410" y="31" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">Testing a GraphQL API · one endpoint, big surface</text>
+
+  <!-- endpoint -->
+  <rect x="34" y="78" width="752" height="46" rx="8" fill="#0b1f1a" stroke="#1f8f6f"/>
+  <text x="50" y="107" fill="#7ee0c3" font-size="14">POST /api/graphql   ← the whole app rides one endpoint</text>
+
+  <!-- step 1 -->
+  <text x="34" y="156" fill="#8b949e" font-size="13">1 · Try to dump the schema (the fast wins):</text>
+  <rect x="34" y="168" width="752" height="70" rx="8" fill="#11161d" stroke="#30363d"/>
+  <text x="50" y="192" fill="#c9d1d9" font-size="13">query{__schema{queryType{name}}}   →  introspection ON = full map</text>
+  <text x="50" y="212" fill="#c9d1d9" font-size="13">field typo `restauran`             →  "did you mean restaurant?" leak</text>
+  <text x="50" y="230" fill="#f0883e" font-size="12">hardened target = all disabled + stripped errors. Not the end — keep going ↓</text>
+
+  <!-- step 2 -->
+  <text x="34" y="266" fill="#8b949e" font-size="13">2 · Harvest REAL operations from the app's own traffic:</text>
+  <rect x="34" y="278" width="752" height="60" rx="8" fill="#11161d" stroke="#30363d"/>
+  <text x="50" y="302" fill="#c9d1d9" font-size="13">hook fetch + XHR → use the app → it emits its valid queries/mutations</text>
+  <text x="50" y="322" fill="#c9d1d9" font-size="13">watch the wire format:  {query} = single   ·   [ {..},{..} ] = batching ON</text>
+
+  <!-- step 3 -->
+  <text x="34" y="368" fill="#8b949e" font-size="13">3 · Attack what you found:</text>
+  <rect x="34" y="380" width="366" height="66" rx="8" fill="#1a1020" stroke="#8957e5"/>
+  <text x="52" y="404" fill="#d2a8ff" font-size="13" font-weight="700">IDOR</text>
+  <text x="52" y="424" fill="#c9d1d9" font-size="12">every id: / uuid: is a question —</text>
+  <text x="52" y="440" fill="#c9d1d9" font-size="12">tamper it, read someone else's data</text>
+
+  <rect x="420" y="380" width="366" height="66" rx="8" fill="#201810" stroke="#f0883e"/>
+  <text x="438" y="404" fill="#f0a860" font-size="13" font-weight="700">BATCHING ABUSE</text>
+  <text x="438" y="424" fill="#c9d1d9" font-size="12">array of the same mutation in one</text>
+  <text x="438" y="440" fill="#c9d1d9" font-size="12">request → bypass rate limits</text>
+</svg>
